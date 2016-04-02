@@ -1,0 +1,16 @@
+[user]
+	email = enapupe@gmail.com
+	name = enapupe
+[push]
+	default = current
+[core]
+	excludesfile = /home/enapupe/.gitignore_global
+[alias]
+	co = checkout
+	statu = status
+	statua = status
+	stauts = status
+	psuh = push
+	up = "!git remote update -p; git merge --ff-only @{u}"
+        dfhd = "diff HEAD --"
+        pushf = push --force-with-lease
