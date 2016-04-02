@@ -1,0 +1,6 @@
+{
+    "disable_pyv8_update": true,
+    "preferences": {
+        "filter.commentAfter": "<!-- end <%= attr('id', '#') %><%= attr('class', '.') %> -->",
+    }
+}

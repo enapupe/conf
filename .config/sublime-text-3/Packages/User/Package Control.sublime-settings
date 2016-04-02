@@ -1,0 +1,42 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"AngularJS",
+		"ASCII Decorator",
+		"Base Encoder",
+		"Bower",
+		"Color Highlighter",
+		"CSS Format",
+		"DocBlockr",
+		"Emmet",
+		"Git",
+		"GitGutter",
+		"HexViewer",
+		"JavaScriptNext - ES6 Syntax",
+		"Jinja2",
+		"JSCS-Formatter",
+		"JSHint Gutter",
+		"LESS",
+		"LiveStyle",
+		"Monokai Blueberry Color Scheme",
+		"ngdoc snippets",
+		"Package Control",
+		"Sass",
+		"SCSS",
+		"SideBarEnhancements",
+		"SublimeLinter",
+		"SublimeLinter-csslint",
+		"SublimeLinter-jscs",
+		"Terminal",
+		"Theme - Flatland",
+		"URLEncode",
+		"Web Inspector"
+	],
+	"repositories":
+	[
+	]
+}

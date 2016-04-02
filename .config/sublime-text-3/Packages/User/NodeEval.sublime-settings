@@ -1,0 +1,5 @@
+ {
+    "node_command": "/usr/bin/nodejs",
+    "output": "new",
+    "overwrite_output": true
+}

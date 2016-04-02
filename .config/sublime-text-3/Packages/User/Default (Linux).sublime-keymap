@@ -1,0 +1,14 @@
+[
+	{ "keys": ["ctrl+3"], "command": "toggle_comment", "args": { "block": false } },
+    { "keys": ["ctrl+'"], "command": "show_panel", "args": {"panel": "console", "toggle": true} },
+    { "keys": ["shift+alt+t"], "command": "insert_snippet", "args": { "name": "Packages/User/trans.sublime-snippet" } },
+    { "keys": ["ctrl+shift+alt+t"], "command": "insert_snippet", "args": { "name": "Packages/User/jinjatrans.sublime-snippet" } },
+    { "keys": ["shift+alt+a"], "command": "insert_snippet", "args": { "name": "Packages/User/angularexpression.sublime-snippet" } },
+    { "keys": ["shift+alt+l"], "command": "insert_snippet", "args": { "name": "Packages/User/consolelog.sublime-snippet" } },
+    { "keys": ["ctrl+shift+alt+l"], "command": "insert_snippet", "args": { "name": "Packages/User/gettext.sublime-snippet" } },
+    { "keys": ["ctrl+shift+alt+m"], "command": "insert_snippet", "args": { "name": "Packages/User/lbl.sublime-snippet" } },
+    { "keys": ["shift+alt+h"], "command": "insert_snippet", "args": { "name": "Packages/User/helper.sublime-snippet" } },
+    { "keys": ["shift+delete"], "command": "noop()" },
+    { "keys": ["ctrl+shift+r"], "command": "swi_debug" },
+    { "keys": ["ctrl+t"], "command": "open_terminal" }
+]
