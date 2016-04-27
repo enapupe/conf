@@ -14,3 +14,4 @@
 	up = "!git remote update -p; git merge --ff-only @{u}"
         dfhd = "diff HEAD --"
         pushf = push --force-with-lease
+        aliases = config --get-regexp alias
