@@ -4,14 +4,21 @@
 [push]
 	default = current
 [core]
-	excludesfile = /home/enapupe/.gitignore_global
+	excludesfile = ~/.gitignore_global
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	editor = subl -n -w
 [alias]
 	co = checkout
 	statu = status
 	statua = status
-	stauts = status
+  stauts = status
+  stuts = status
+	stats = status
 	psuh = push
 	up = "!git remote update -p; git merge --ff-only @{u}"
-        dfhd = "diff HEAD --"
-        pushf = push --force-with-lease
-        aliases = config --get-regexp alias
+  dfhd = "diff HEAD --"
+  dfs = "diff --staged"
+  fds = "diff --staged"
+  pushf = push --force-with-lease
+  aliases = config --get-regexp alias
+  emenda = commit --amend --no-edit

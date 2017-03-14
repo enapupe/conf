@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/Users/iacami/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -7,12 +7,12 @@ export ZSH=$HOME/.oh-my-zsh
 # time that oh-my-zsh is loaded.
 ZSH_THEME="robbyrussell"
 
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -26,8 +26,8 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
-# Uncomment the following line to disable command auto-correction.
-# DISABLE_CORRECTION="true"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -48,14 +48,15 @@ ZSH_THEME="robbyrussell"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
 plugins=(git gulp)
-
-source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/home/enapupe/bin:/home/enapupe/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/enapupe/go/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -73,20 +74,46 @@ export PATH="/home/enapupe/bin:/home/enapupe/bin:/usr/local/sbin:/usr/local/bin:
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#alias rnext='find . -depth -name "*.$0" -exec sh -c \'mv "$1" "${1%.$0}.$1"\' _ {} \;'
+alias tempo='curl wttr.in/Florianopolis'
+zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
+alias jsc=/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc
+alias canaryunsafe="open /Applications/Google\ Chrome\ Canary.app --args --disable-web-security --user-data-dir='/Users/iacami/tmp'"
 
-#my aliases
-alias mxlookup='nslookup -type=mx $1'
-alias txtlookup='nslookup -type=txt $1'
-alias mysqllocal='mysql -u root -psenhadoadmin'
-alias meuip='curl ifconfig.me'
-alias tamanho='expr length $1'
-alias abrir=gnome-open
+versao() {
+  if [[ -z $1 ]]; then
+    cat package.json | grep \"version\":\ | sed s/\"version\":\ //
+  else
+    cat $1/package.json | grep \"version\":\ | sed s/\"version\":\ //
+  fi
+}
+alias got=git
 
-minify() { declare -a args=(); for arg; do args+=( --js "$arg" ); done; java -jar /home/enapupe/compiler.jar --compilation_level SIMPLE_OPTIMIZATIONS "${args[@]}" --js_output_file /dev/stdout; }
-findhere() { find ./ -iname "*$1*"; }
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+cores () {
+  egrep -oi '#[a-f0-9]{6}' $1 | sort | uniq
+}
 
-source ~/transfer.sh
+export NODE_ENV=development
+alias nom=npm
+export PGHOST="localhost"
+mkd () {
+  mdv $1 | more -R
+}
+
+alias processoporta='sudo lsof -iTCP -sTCP:LISTEN -n -P'
+alias lgtm='echo "http://bit.do/lgtm" | pbcopy'
+
+export WORKON_HOME=$HOME/Dev/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+
+export MYSQL_HOST='127.0.0.1'
+alias githubtoken='echo "420a53a502ce3f022a2656ec31e8214d8c721faf"'
