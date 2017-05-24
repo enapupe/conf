@@ -49,7 +49,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git gulp)
+plugins=(git)
 
 # User configuration
 
@@ -88,6 +88,7 @@ alias tempo='curl wttr.in/Florianopolis'
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
 alias jsc=/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc
 alias canaryunsafe="open /Applications/Google\ Chrome\ Canary.app --args --disable-web-security --user-data-dir='/Users/iacami/tmp'"
+alias canaryremote="open /Applications/Google\ Chrome\ Canary.app --args --remote-debugging-port=9222 --disable-web-security --user-data-dir='/Users/iacami/tmp'"
 
 versao() {
   if [[ -z $1 ]]; then
@@ -116,4 +117,7 @@ export WORKON_HOME=$HOME/Dev/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
 export MYSQL_HOST='127.0.0.1'
-alias githubtoken='echo "420a53a502ce3f022a2656ec31e8214d8c721faf"'
+alias githubtoken='echo "2e66899676636126f6ea7de3a6c08ec565de53b0"'
+alias abreaporta="curl http://192.168.0.27/cgi-bin/unlock.cgi"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

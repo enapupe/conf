@@ -22,3 +22,4 @@
   pushf = push --force-with-lease
   aliases = config --get-regexp alias
   emenda = commit --amend --no-edit
+  pushstaging = "!git push --force-with-lease --no-verify origin $(git status | grep 'On branch' | cut -c 11-):staging"
