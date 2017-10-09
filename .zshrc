@@ -119,5 +119,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 export MYSQL_HOST='127.0.0.1'
 alias githubtoken='echo "2e66899676636126f6ea7de3a6c08ec565de53b0"'
 alias abreaporta="curl http://192.168.0.27/cgi-bin/unlock.cgi"
+alias freewifi="sudo ifconfig en0 ether `openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'`"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval $(thefuck --alias)
