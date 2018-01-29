@@ -1,0 +1,75 @@
+{
+    "always_show_minimap_viewport": true,
+    "atomic_save": true,
+    "bold_folder_labels": true,
+    "caret_extra_bottom": 3,
+    "caret_extra_top": 3,
+    "caret_extra_width": 2,
+    "caret_style": "blink",
+    "color_scheme": "Packages/User/Flatland Monokai (SL) (Flake8Lint).tmTheme",
+    "default_encoding": "UTF-8",
+    "draw_centered": false,
+    "draw_minimap_border": false,
+    "enable_telemetry": false,
+    "ensure_newline_at_eof_on_save": true,
+    "fallback_encoding": "UTF-8",
+    "flatland_sidebar_tree_medium": true,
+    "flatland_square_tabs": true,
+    "folder_exclude_patterns":
+    [
+        ".svn",
+        ".git",
+        ".hg"
+    ],
+    "font_size": 14,
+    "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "ignored_packages":
+    [
+        "ActionScript",
+        "AppleScript",
+        "ASP",
+        "C#",
+        "Erlang",
+        "Go",
+        "Graphviz",
+        "Groovy",
+        "Haskell",
+        "Java",
+        "LaTeX",
+        "Lisp",
+        "LiveStyle",
+        "Lua",
+        "Matlab",
+        "Pascal",
+        "Perl",
+        "R",
+        "Rails",
+        "RestructuredText",
+        "Ruby",
+        "Scala",
+        "Textile",
+        "Vintage"
+    ],
+    "indent_guide_options":
+    [
+        "draw_normal",
+        "draw_active"
+    ],
+    "margin": 4,
+    "material_theme_accent_orange": true,
+    "material_theme_small_statusbar": true,
+    "material_theme_small_tab": true,
+    "overlay_scroll_bars": "enabled",
+    "rulers":
+    [
+        100
+    ],
+    "shift_tab_unindent": true,
+    "show_encoding": true,
+    "show_line_endings": true,
+    "tab_size": 2,
+    "theme": "Material-Theme.sublime-theme",
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true
+}
