@@ -1,11 +1,20 @@
-# Path to your oh-my-zsh installation.
-export ZSH=/Users/iacami/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
+# Path to your oh-my-zsh installation.
+export ZSH="/Users/enapupe/.oh-my-zsh"
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -49,14 +58,15 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(
+  git
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -72,7 +82,7 @@ source $ZSH/oh-my-zsh.sh
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -83,13 +93,25 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#alias rnext='find . -depth -name "*.$0" -exec sh -c \'mv "$1" "${1%.$0}.$1"\' _ {} \;'
-alias tempo='curl wttr.in/Florianopolis'
-zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
-alias jsc=/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc
-alias canaryunsafe="open /Applications/Google\ Chrome\ Canary.app --args --disable-web-security --user-data-dir='/Users/iacami/tmp'"
-alias canaryremote="open /Applications/Google\ Chrome\ Canary.app --args --remote-debugging-port=9222 --disable-web-security --user-data-dir='/Users/iacami/tmp'"
 
+alias subl="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl"
+alias tempo='curl wttr.in/Florianopolis'
+alias jsc=/System/Library/Frameworks/JavaScriptCore.framework/Versions/Current/Resources/jsc
+alias canaryunsafe="open /Applications/Google\ Chrome\ Canary.app --args --disable-web-security --user-data-dir='/Users/enapupe/tmp'"
+alias canaryremote="open /Applications/Google\ Chrome\ Canary.app --args --remote-debugging-port=9222 --disable-web-security --user-data-dir='/Users/enapupe/tmp'"
+alias got=git
+alias nom=npm
+alias processoporta='sudo lsof -iTCP -sTCP:LISTEN -n -P'
+alias freewifi="sudo ifconfig en0 ether `openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'`"
+
+alias dweb='docker-compose exec web'
+alias dwebtests='docker-compose exec web py.test'
+alias dwebmigrate='docker-compose exec web python manage.py migrate'
+alias dwebpy='docker-compose exec web python manage.py shell'
+zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD'
+sshshell(){
+  ssh -t $1 'docker exec -e RAVEN_DSN="" -it `docker ps | grep woovit-backend -m1 | cut -c1-12` "/srv/app/manage.py" shell'
+}
 versao() {
   if [[ -z $1 ]]; then
     cat package.json | grep \"version\":\ | sed s/\"version\":\ //
@@ -97,29 +119,14 @@ versao() {
     cat $1/package.json | grep \"version\":\ | sed s/\"version\":\ //
   fi
 }
-alias got=git
 
-cores () {
-  egrep -oi '#[a-f0-9]{6}' $1 | sort | uniq
+headers() {
+  curl -sSL -X POST -D - $1 -o /dev/null
 }
-
-export NODE_ENV=development
-alias nom=npm
-export PGHOST="localhost"
-mkd () {
-  mdv $1 | more -R
-}
-
-alias processoporta='sudo lsof -iTCP -sTCP:LISTEN -n -P'
-alias lgtm='echo "http://bit.do/lgtm" | pbcopy'
-
-export WORKON_HOME=$HOME/Dev/.virtualenvs
-source /usr/local/bin/virtualenvwrapper.sh
 
 export MYSQL_HOST='127.0.0.1'
-alias githubtoken='echo "2e66899676636126f6ea7de3a6c08ec565de53b0"'
-alias abreaporta="curl http://192.168.0.27/cgi-bin/unlock.cgi"
-alias freewifi="sudo ifconfig en0 ether `openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//'`"
+export PGHOST="localhost"
+export WORKON_HOME=$HOME/dev/.virtualenvs
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval $(thefuck --alias)
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8

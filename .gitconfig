@@ -8,7 +8,8 @@
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = subl -n -w
 [alias]
-	co = checkout
+  co = checkout
+	co- = checkout -
 	statu = status
 	statua = status
   stauts = status
@@ -23,3 +24,9 @@
   aliases = config --get-regexp alias
   emenda = commit --amend --no-edit
   pushstaging = "!git push --force-with-lease --no-verify origin $(git status | grep 'On branch' | cut -c 11-):staging"
+  wip = "commit --no-verify -m wip"
+  gbs = "branch --sort=-committerdate"
+[tag]
+	sort = version:refname
+[diff]
+	context = 5
